@@ -1,6 +1,6 @@
 const initialState = {count: 0}
 
-const countReducer = function (state=initialState, action: { type: any }) : {count: number} {
+const countReducer = function (state=initialState, action: { type: any, payload: {count: number} }) : {count: number} {
     switch (action.type) {
         case 'count/increment':
             return {
@@ -20,6 +20,11 @@ const countReducer = function (state=initialState, action: { type: any }) : {cou
             return {
                 ...state,
                 count : 0
+            }
+        case 'count/set':
+            return {
+                ...state,
+                count : action.payload.count
             }
         default:
             return state
