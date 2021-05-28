@@ -31,9 +31,16 @@ function Chat() : JSX.Element {
                 <input type='text' value={activeMessage} onChange={(event) => setActiveMessage(event.target.value)} />
                 <input type='submit' value='Send'/>
             </form>
-            <ul> 
+            <ul css={css`
+                list-style-type: none; 
+                margin: 0; 
+                padding: 0;
+            `}> 
                 {messages.map((message, index) => (
-                    <li key={index}> {message} </li>
+                    <li css={css`
+                    padding: 0.5rem 1rem;
+                    nth-child(odd) { background: #efefef;}
+                    `} key={index}> {message} </li>
                 ))}
             </ul>
         </div>
